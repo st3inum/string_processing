@@ -12,6 +12,7 @@ class Stack
 		void print(){for(int j=0;j<i;j++)cout<<arr[j]<<' ';if(i>0)cout<<endl;}
 		int size(){return i;}
 		bool empty(){return i==0;}
+		int top(){if(i==0)return 1/0;return arr[i-1];}
 };
 
 
@@ -20,6 +21,7 @@ int main()
 	Stack v;
 	v.push(10);
 	v.pop();
+	// cout<<v.top()<<endl;
 	cout<<v.size()<<endl;
 	v.print();
 	v.pop();
@@ -34,6 +36,7 @@ int main()
 	v.pop();
 	v.push(102);
 	v.print();
-
+	cout<<endl;
+	cout<<v.top()<<endl;
 	cout<<v.size()<<endl;
 }
