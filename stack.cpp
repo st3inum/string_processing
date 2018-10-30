@@ -8,7 +8,7 @@ class Stack
 	int i=0;
 	public:
 		void push(int n){arr[i++]=n;}
-		void pop(){i--}
+		void pop(){i--;}
 		void print(){for(int j=0;j<i;j++)cout<<arr[j]<<' ';cout<<endl;}
 		int size(){return i;}
 };
