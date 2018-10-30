@@ -7,9 +7,11 @@ class Stack
 	Stack *root=NULL;
 	int val;
 	Stack *next=NULL;
+	int sz=0;
 	public:
 		void push(int n)
 		{
+			sz++;
 			if(root==NULL)
 			{
 				root= new Stack;
@@ -26,18 +28,12 @@ class Stack
 				cu->next=ne;
 			}
 		}
-		int size()
-		{
-			Stack *cu=root;
-			if(cu==NULL)return 0;
-			int i;
-			for (i = 1; cu->next!=NULL; ++i)cu=cu->next;
-			return i;
-		}
+		int size(){return sz;}
 		void pop()
 		{
 			Stack *cu=root;
 			if(root==NULL)return ;
+			sz--;
 			if(root->next==NULL)
 			{
 				root=NULL;
