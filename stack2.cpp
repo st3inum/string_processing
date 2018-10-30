@@ -8,6 +8,14 @@ class Stack
 	int val;
 	Stack *next=NULL;
 	int sz=0;
+	void pr(Stack *curr)
+	{
+		if(curr!=NULL)
+		{
+			pr(curr->next);
+			printf("%d ",curr->val);
+		}
+	}
 	public:
 		void push(int n)
 		{
@@ -16,22 +24,18 @@ class Stack
 			{
 				root= new Stack;
 				root->val=n;
-				root->next=NULL;
 			}
 			else
 			{
-				Stack *cu=root;
-				while(cu->next!=NULL)cu=cu->next;
 				Stack *ne= new Stack;
 				ne->val=n;
-				ne->next=NULL;
-				cu->next=ne;
+				ne->next=root;
+				root=ne;
 			}
 		}
 		int size(){return sz;}
 		void pop()
 		{
-			Stack *cu=root;
 			if(root==NULL)return ;
 			sz--;
 			if(root->next==NULL)
@@ -39,31 +43,19 @@ class Stack
 				root=NULL;
 				return;
 			}
-			while(cu->next->next!=NULL)cu=cu->next;
-			delete (cu->next);
-			cu->next=NULL;
+			Stack *cu=root->next;
+			delete (root);
+			root=cu;
 		}
 		void print()
 		{
-			Stack *cu=root;
-			if(cu==NULL)return ;
-			while(1)
-			{
-				printf("%d ", cu->val);
-				if(cu->next==NULL)
-				{
-					printf("\n");
-					break;
-				}
-				else cu=cu->next;
-			}
+			pr(root);
+			if(sz)printf("\n");
 		}
 		int top()
 		{
-			Stack *cu=root;
-			if(cu==NULL)return 1/0;
-			while(cu->next!=NULL)cu=cu->next;
-			return cu->val;
+			if(root==NULL)return 1/0;
+			return root->val;
 		}
 		bool empty(){return root==NULL;}
 };
