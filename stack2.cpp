@@ -77,7 +77,7 @@ int main()
 	Stack v;
 	v.push(10);
 	v.pop();
-	cout<<v.top()<<endl;
+	// cout<<v.top()<<endl;
 	cout<<v.size()<<endl;
 	v.print();
 	v.pop();
