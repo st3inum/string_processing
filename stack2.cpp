@@ -62,6 +62,13 @@ class Stack
 				else cu=cu->next;
 			}
 		}
+		int top()
+		{
+			Stack *cu=root;
+			if(cu==NULL)return 1/0;
+			while(cu->next!=NULL)cu=cu->next;
+			return cu->val;
+		}
 		bool empty(){return root==NULL;}
 };
 
@@ -70,6 +77,7 @@ int main()
 	Stack v;
 	v.push(10);
 	v.pop();
+	cout<<v.top()<<endl;
 	cout<<v.size()<<endl;
 	v.print();
 	v.pop();
@@ -84,6 +92,7 @@ int main()
 	v.pop();
 	v.push(102);
 	v.print();
-
+	cout<<endl;
+	cout<<v.top()<<endl;
 	cout<<v.size()<<endl;
 }
