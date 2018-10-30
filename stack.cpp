@@ -9,7 +9,7 @@ class Stack
 	public:
 		void push(int n){arr[i++]=n;}
 		void pop(){if(i>0)i--;}
-		void print(){for(int j=0;j<i;j++)cout<<arr[j]<<' ';cout<<endl;}
+		void print(){for(int j=0;j<i;j++)cout<<arr[j]<<' ';if(i>0)cout<<endl;}
 		int size(){return i;}
 		bool empty(){return i==0;}
 };
