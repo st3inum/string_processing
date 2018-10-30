@@ -7,9 +7,11 @@ class Queue
 	Queue *root=NULL;
 	int val;
 	Queue *next=NULL;
+	int sz=0;
 	public:
 		void push(int n)
 		{
+			sz++;
 			if(root==NULL)
 			{
 				root= new Queue;
@@ -26,17 +28,11 @@ class Queue
 				cu->next=ne;
 			}
 		}
-		int size()
-		{
-			Queue *cu=root;
-			if(cu==NULL)return 0;
-			int i;
-			for (i = 1; cu->next!=NULL; ++i)cu=cu->next;
-			return i;
-		}
+		int size(){return sz;}
 		void pop()
 		{
 			if(root==NULL)return;
+			sz--;
 			Queue *cu=root->next;
 			delete (root);
 			root=cu;
