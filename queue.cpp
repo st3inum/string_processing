@@ -71,4 +71,14 @@ int main()
 	v.pop();
 	// cout<<v.front()<<endl;
 	cout<<v.size()<<endl;
+	v.push(10);
+	v.push(20);
+	v.push(100);
+	v.push(102);
+	v.pop();
+	v.push(101);
+	cout<<v.size()<<"\n\n";
+	v.print();
+	cout<<v.empty()<<endl;
+	cout<<v.front()<<endl;
 }
